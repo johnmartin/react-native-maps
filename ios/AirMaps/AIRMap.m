@@ -319,6 +319,9 @@ const CGFloat AIRMapZoomBoundBuffer = 0.01;
                 self.cacheImageView.hidden = YES;
                 UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0.0);
                 [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+                CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeDifference);
+                CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(),[UIColor whiteColor].CGColor);
+                CGContextFillRect(UIGraphicsGetCurrentContext(), CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height));
                 UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
                 UIGraphicsEndImageContext();
                 
