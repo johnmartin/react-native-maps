@@ -86,11 +86,9 @@ public class AirMapMarker extends AirMapFeature {
                                 if (bitmap != null) {
                                     bitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
                                     Float density = getResources().getDisplayMetrics().density;
-                                    if (density == 1.5) {
-                                        int width = (int) (bitmap.getWidth() / density);
-                                        int height = (int) (bitmap.getWidth() / density);
-                                        bitmap = Bitmap.createScaledBitmap(bitmap, width, height, true);
-                                    }
+                                    int width = (int) (bitmap.getWidth() / density);
+                                    int height = (int) (bitmap.getWidth() / density);
+                                    bitmap = Bitmap.createScaledBitmap(bitmap, width, height, true);
                                     iconBitmapDescriptor = BitmapDescriptorFactory.fromBitmap(bitmap);
                                 }
                             }
